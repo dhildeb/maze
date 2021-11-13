@@ -1,0 +1,13 @@
+/* BASIC STYLES HERE */
+body{
+  background-color: black;
+}
+.block{
+  height: 27px;
+}
+.block:hover{
+  background-color: green;
+}
+.p--1{
+  padding: .35px !important;
+}
