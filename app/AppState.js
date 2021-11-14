@@ -5,7 +5,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
   game = true
-  level = 5
+  level = 72
   moved = false
   position = null
   goal = null
