@@ -12,9 +12,7 @@ body{
   padding: .35px !important;
 }
 .restart{
-  position: absolute;
-  top: 75vh;
-  left: 50vw;
+  margin-top: 50vh;
   cursor: pointer;
 }
 .restart:hover{

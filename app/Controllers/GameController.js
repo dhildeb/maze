@@ -17,7 +17,8 @@ export class GameController {
 
 function _endGame() {
   document.getElementById('board').innerHTML = `<h1 class='text-danger text-center'>Game Over<h1>
-  <p class='restart' onclick='app.gameController.restart()'>Restart</p>
+  <p class='p-5'>Score: ${ProxyState.level - 72}</p>
+  <p class='restart text-center' onclick='app.gameController.restart()'>Restart</p>
   `
 
 }
