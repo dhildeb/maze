@@ -5,8 +5,10 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
   game = true
-  level = 72
+  level = 5
+  moved = false
   position = null
+  goal = null
 }
 
 export const ProxyState = new Proxy(new AppState(), {

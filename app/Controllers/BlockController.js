@@ -3,31 +3,42 @@ import { getColor } from "../Utils/generateColor.js"
 import { blockService } from '../Services/BlockService.js'
 export class BlockController {
   constructor() {
-    ProxyState.on('position', _change)
-    ProxyState.on('game', _endGame)
+    ProxyState.on('moved', _change)
+    ProxyState.on('level', _draw)
     _draw()
   }
   changePosition(pos) {
-    console.log(pos)
     blockService.changePosition(pos)
-  }
-  gameOver() {
-    blockService.gameOver()
   }
 }
 
 function _draw() {
   let template = ''
+
   for (let i = 0; i < ProxyState.level; i++) {
+    let id = 'block' + (i + 1)
+    console.log(id)
+    console.log(ProxyState.position)
+    if (id === ProxyState.position) {
+      template += `
+      <div id="block${i + 1}" class="col-1 p-0 p--1">
+        <div class="block" style="border: 1px solid white">
+        </div>
+      </div>
+      `
+      continue
+    }
+
     let color = getColor()
     template += `
     <div id="block${i + 1}" class="col-1 p-0 p--1">
-      <div class="block" style="border: 1px solid ${color}" onmouseover="app.blockController.changePosition('block${i + 1}')">
+      <div class="block" style="border: 1px solid ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('block${i + 1}')">
       </div>
     </div>
     `
   }
   document.getElementById('board').innerHTML = template
+  _drawGoal()
 }
 
 function _change() {
@@ -36,17 +47,23 @@ function _change() {
   let color = getColor()
   for (let i = 0; i < ProxyState.level; i++) {
     id = 'block' + (i + 1)
-    console.log(id)
-    if (ProxyState.position != id) {
+    if (ProxyState.position != id && ProxyState.goal != id) {
       color = getColor()
       template = `
-        <div class="block" style="border: 1px solid ${color}" onmouseover="app.blockController.${color === 'green' ? 'changePosition' : 'gameOver'}('${id}'); this.onmouseover = null;">
+        <div class="block" style="border: 1px solid ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('${id}'); this.onmouseover = null;">
         </div>
         `
       document.getElementById(id).innerHTML = template
     }
   }
 }
-function _endGame() {
-  document.getElementById('board').innerHTML = '<h1>Game Over<h1>'
+
+function _drawGoal() {
+  let goal = Math.round(Math.random() * (ProxyState.level - 1)) + 1
+  ProxyState.goal = 'block' + (goal)
+  let template = `
+      <div class="block" style="border: 1px solid gold" onmouseover="app.gameController.score()">
+      </div>
+    `
+  document.getElementById(ProxyState.goal).innerHTML = template
 }

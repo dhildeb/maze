@@ -4,10 +4,9 @@ class BlockService {
 
   changePosition(pos) {
     ProxyState.position = pos
+    ProxyState.moved = true
   }
-  gameOver() {
-    ProxyState.game = false
-  }
+
 }
 
 export const blockService = new BlockService()

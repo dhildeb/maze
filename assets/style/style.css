@@ -6,8 +6,17 @@ body{
   height: 27px;
 }
 .block:hover{
-  background-color: green;
+  background-color: lightgoldenrodyellow;
 }
 .p--1{
   padding: .35px !important;
+}
+.restart{
+  position: absolute;
+  top: 75vh;
+  left: 50vw;
+  cursor: pointer;
+}
+.restart:hover{
+  color: green;
 }
