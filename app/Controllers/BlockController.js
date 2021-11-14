@@ -17,8 +17,7 @@ function _draw() {
 
   for (let i = 0; i < ProxyState.level; i++) {
     let id = 'block' + (i + 1)
-    console.log(id)
-    console.log(ProxyState.position)
+
     if (id === ProxyState.position) {
       template += `
       <div id="block${i + 1}" class="col-1 p-0 p--1">

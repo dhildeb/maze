@@ -6,8 +6,8 @@ class GameService {
     ProxyState.game = false
   }
   restart() {
-    ProxyState.level = 72
     ProxyState.position = null
+    ProxyState.level = 72
   }
   score() {
     ProxyState.position = ProxyState.goal
