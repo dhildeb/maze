@@ -31,7 +31,7 @@ function _draw() {
     let color = getColor()
     template += `
     <div id="block${i + 1}" class="col-1 p-0 p--1">
-      <div class="block" style="border: 1px solid ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('block${i + 1}')">
+      <div class="block" style="border: 1px solid ${color}; background-color: ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('block${i + 1}')">
       </div>
     </div>
     `
@@ -49,7 +49,7 @@ function _change() {
     if (ProxyState.position != id && ProxyState.goal != id) {
       color = getColor()
       template = `
-        <div class="block" style="border: 1px solid ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('${id}'); this.onmouseover = null;">
+        <div class="block" style="border: 1px solid ${color}; background-color: ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('${id}'); this.onmouseover = null;">
         </div>
         `
       document.getElementById(id).innerHTML = template
@@ -61,7 +61,7 @@ function _drawGoal() {
   let goal = Math.round(Math.random() * (ProxyState.level - 1)) + 1
   ProxyState.goal = 'block' + (goal)
   let template = `
-      <div class="block" style="border: 1px solid gold" onmouseover="app.gameController.score()">
+      <div class="block" style="border: 1px solid gold; background-color: gold" onmouseover="app.gameController.score()">
       </div>
     `
   document.getElementById(ProxyState.goal).innerHTML = template
