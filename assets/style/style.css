@@ -3,10 +3,11 @@ body{
   background-color: black;
 }
 .block{
-  height: 27px;
+  outline: .25px solid black;
+  height: 8.33vh
 }
 .block:hover{
-  background-color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow !important;
 }
 .p--1{
   padding: .35px !important;
@@ -17,4 +18,26 @@ body{
 }
 .restart:hover{
   color: green;
+}
+.c1{
+  cursor: url('../img/cur1.gif') 40 35, auto !important;
+}
+.c2{
+  cursor: url('../img/cur22.gif') 30 29, auto !important;
+}
+.c3{
+  cursor: url('../img/gam880.gif') 30 31, auto !important;
+}
+.c4{
+  cursor: url('../img/gam1416.png') 62 31, auto !important;
+}
+.cn{
+  cursor: none;
+}
+#timer{
+  font-size: xx-large;
+  color: whitesmoke;
+}
+.m-xtra{
+  margin-top: 50vh;
 }

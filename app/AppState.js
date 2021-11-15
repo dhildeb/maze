@@ -9,6 +9,8 @@ class AppState extends EventEmitter {
   moved = false
   position = null
   goal = null
+  weapon = 1
+  timer = 71
 }
 
 export const ProxyState = new Proxy(new AppState(), {

@@ -9,3 +9,15 @@ window["app"] = new App();
 $(document).mouseleave(() => {
   app.gameController.gameOver()
 })
+let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
+console.log(highScore)
+switch (true) {
+  case highScore > 20:
+    document.getElementById('sword').classList.remove('d-none')
+  case highScore > 15:
+    document.getElementById('tiny').classList.remove('d-none')
+  case highScore > 10:
+    document.getElementById('adventurer').classList.remove('d-none')
+  case highScore > 5:
+    document.getElementById('lightning').classList.remove('d-none')
+}
