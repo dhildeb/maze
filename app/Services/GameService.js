@@ -1,10 +1,12 @@
 import { ProxyState } from "../AppState.js";
 
+
 class GameService {
   constructor() {
 
   }
   gameOver() {
+    console.log(ProxyState)
     if (ProxyState.powerMode) {
       ProxyState.points -= 5
       if (ProxyState.points < 5) {
@@ -38,8 +40,8 @@ class GameService {
     ProxyState.weapon = num
     let x = setInterval(function () {
       document.getElementById("timer").innerHTML = ProxyState.timer
-      if (ProxyState.timer < 0) {
-        this.gameOver()
+      if (ProxyState.timer <= 0) {
+        app.gameController.gameOver()
         clearInterval(x)
       }
       if (ProxyState.timer > 0) {
