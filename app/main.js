@@ -1,3 +1,4 @@
+import { ProxyState } from "./AppState.js";
 import { BlockController } from "./Controllers/BlockController.js";
 import { GameController } from "./Controllers/GameController.js";
 class App {
@@ -7,7 +8,9 @@ class App {
 
 window["app"] = new App();
 $(document).mouseleave(() => {
-  app.gameController.gameOver()
+  if (ProxyState.moved) {
+    app.gameController.gameOver()
+  }
 })
 let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
 switch (true) {
