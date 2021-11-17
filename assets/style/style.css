@@ -41,3 +41,21 @@ body{
 .m-xtra{
   margin-top: 50vh;
 }
+.bg-transparent{
+  background-color: rgba(245, 245, 245, 0.5) !important;
+}
+.bg-green{
+  background-color: green;
+}
+.text-gold{
+  color: gold;
+}
+.square{
+  width: 100px;
+  height: 100px;
+}
+.power-mode{
+  background-image: url('https://media1.giphy.com/media/fX2oud7WOkCyO6jtyv/giphy-downsized-large.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

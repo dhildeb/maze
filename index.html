@@ -16,16 +16,33 @@
 <body>
 
   <main>
-    <p id="timer" class="text-center">0</p>
-    <div class="container-fluid my-5">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+          <p>press SPACEBAR for Power Mode</p>
+        </div>
+        <div class="col-4 border bg-transparent rounded my-3">
+          <p id="timer" class="text-center">0</p>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+          <div
+            class="text-gold rounded-pill bg-green text-center d-flex align-items-center justify-content-center p-4 my-3"
+            title="Points">
+            <b id="points">0</b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
       <div class="row" id="board">
         <h1 class="m-xtra">Choose your weapon</h1>
         <button class="btn btn-info arrow" onclick="app.gameController.start(1)">arrow</button>
         <button class="btn btn-info pointer" onclick="app.gameController.start(2)">finger</button>
-        <button id="lightning" class="btn btn-info c1 " onclick="app.gameController.start(3)">lightning</button>
-        <button id="tiny" class="btn btn-info c2 " onclick="app.gameController.start(4)">tiny</button>
-        <button id="adventurer" class="btn btn-info c3 " onclick="app.gameController.start(5)">adventurer</button>
-        <button id="sword" class="btn btn-info c4 " onclick="app.gameController.start(6)">sword</button>
+        <button id="lightning" class="btn btn-info c1 d-none" onclick="app.gameController.start(3)">lightning</button>
+        <button id="tiny" class="btn btn-info c2 d-none" onclick="app.gameController.start(4)">tiny</button>
+        <button id="adventurer" class="btn btn-info c3 d-none" onclick="app.gameController.start(5)">adventurer</button>
+        <button id="sword" class="btn btn-info c4 d-none" onclick="app.gameController.start(6)">sword</button>
         <button class="btn btn-info cn" onclick="app.gameController.start(7)">Hard Core</button>
       </div>
     </div>

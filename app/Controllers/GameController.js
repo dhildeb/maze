@@ -4,6 +4,8 @@ export class GameController {
   constructor() {
     ProxyState.on('game', _endGame)
     ProxyState.on('weapon', _start)
+    ProxyState.on('points', _updatePoints)
+    ProxyState.on('powerMode', _activatePowerMode)
   }
   gameOver() {
     gameService.gameOver()
@@ -16,6 +18,9 @@ export class GameController {
   }
   start(num) {
     gameService.start(num)
+  }
+  powerMode() {
+    gameService.powerMode()
   }
 }
 
@@ -54,4 +59,15 @@ function _start() {
   sheet.innerHTML = `body {cursor: ${weapon}}`
   document.body.appendChild(sheet)
   ProxyState.level = ProxyState.level
+}
+
+function _updatePoints() {
+  document.getElementById('points').innerHTML = ProxyState.points
+}
+function _activatePowerMode() {
+  if (ProxyState.powerMode) {
+    document.body.classList.add('power-mode')
+  } else {
+    document.body.classList.remove('power-mode')
+  }
 }

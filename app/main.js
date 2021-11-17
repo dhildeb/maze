@@ -10,7 +10,6 @@ $(document).mouseleave(() => {
   app.gameController.gameOver()
 })
 let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
-console.log(highScore)
 switch (true) {
   case highScore > 20:
     document.getElementById('sword').classList.remove('d-none')
@@ -20,4 +19,9 @@ switch (true) {
     document.getElementById('adventurer').classList.remove('d-none')
   case highScore > 5:
     document.getElementById('lightning').classList.remove('d-none')
+}
+document.body.onkeyup = function (e) {
+  if (e.keyCode == 32) {
+    app.gameController.powerMode()
+  }
 }
