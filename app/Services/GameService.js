@@ -28,7 +28,11 @@ class GameService {
     ProxyState.position = ProxyState.goal
     ProxyState.level += 1
     ProxyState.points += 1
-    ProxyState.timer += 10
+    if ($(window).width < 700) {
+      ProxyState.timer += 1
+    } else {
+      ProxyState.timer += 5
+    }
   }
   start(num) {
     ProxyState.weapon = num
