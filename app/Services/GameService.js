@@ -6,13 +6,12 @@ class GameService {
 
   }
   gameOver() {
-    console.log(ProxyState)
     if (ProxyState.powerMode) {
       ProxyState.points -= 5
       if (ProxyState.points < 5) {
         ProxyState.powerMode = false
       }
-      return
+      return false
     }
     ProxyState.game = false
     let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
@@ -22,6 +21,7 @@ class GameService {
     }
     ProxyState.timer = 0
     _setPoints()
+    return true
   }
   restart() {
     location.reload()
@@ -41,8 +41,8 @@ class GameService {
     let x = setInterval(function () {
       document.getElementById("timer").innerHTML = ProxyState.timer
       if (ProxyState.timer <= 0) {
-        app.gameController.gameOver()
-        clearInterval(x)
+        console.log(app.gameController.gameOver())
+        app.gameController.gameOver() ? clearInterval(x) : ProxyState.timer += 5
       }
       if (ProxyState.timer > 0) {
         ProxyState.timer--

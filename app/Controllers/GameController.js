@@ -8,7 +8,7 @@ export class GameController {
     ProxyState.on('powerMode', _activatePowerMode)
   }
   gameOver() {
-    gameService.gameOver()
+    return gameService.gameOver()
   }
   restart() {
     gameService.restart()
