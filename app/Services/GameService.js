@@ -45,9 +45,9 @@ class GameService {
     }, 1000);
     ProxyState.points = _getPoints()
 
-    // if (ProxyState.level > 75) {
-    enemyService.determineEnemySpeed()
-    // }
+    if (ProxyState.level > 75) {
+      enemyService.determineEnemySpeed()
+    }
 
   }
 }
