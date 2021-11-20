@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import { enemyService } from "./EnemyService.js";
 
 
 class GameService {
@@ -48,6 +49,8 @@ class GameService {
       }
     }, 1000);
     ProxyState.points = _getPoints()
+    enemyService.determineEnemySpeed()
+
   }
   powerMode() {
     console.log('power mode: ' + ProxyState.powerMode)

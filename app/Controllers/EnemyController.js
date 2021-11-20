@@ -3,13 +3,16 @@ import { enemyService } from "../Services/EnemyService.js";
 
 export class EnemyController {
   constructor() {
-    ProxyState.on('timer', _drawEnemy)
+    ProxyState.on('enemySpeed', _drawEnemy)
+  }
+
+  moveTowardPlayer() {
+    enemyService.moveTowardPlayer()
   }
 
 }
 function _drawEnemy() {
   // if (ProxyState.level > 75) {
-  enemyService.moveTowardPlayer()
   document.getElementById('enemy').innerHTML = `
     <div class='enemy' style='left: ${ProxyState.enemy.x}px; top: ${ProxyState.enemy.y}px;' onmouseover="app.gameController.gameOver()"></div>
     `
