@@ -36,6 +36,7 @@ class GameService {
     } else {
       ProxyState.timer += 5
     }
+    enemyService.increaseEnemySpeed()
   }
   start(num) {
     ProxyState.weapon = num
@@ -49,7 +50,10 @@ class GameService {
       }
     }, 1000);
     ProxyState.points = _getPoints()
+
+    // if (ProxyState.level > 75) {
     enemyService.determineEnemySpeed()
+    // }
 
   }
   powerMode() {

@@ -23,10 +23,21 @@ class EnemyService {
   }
 
   determineEnemySpeed() {
-    let x = setInterval(function () {
+    const speed = ProxyState.enemySpeed
+    let enemyMovement = setInterval(speedInterval, ProxyState.enemySpeed)
+    function speedInterval() {
+      if (speed != ProxyState.enemySpeed) {
+        clearInterval(enemyMovement)
+        enemyMovement = setInterval(speedInterval, ProxyState.enemySpeed);
+      }
       ProxyState.enemySpeed = ProxyState.enemySpeed
       app.enemyController.moveTowardPlayer()
-    }, ProxyState.enemySpeed);
+    }
+  }
+  increaseEnemySpeed() {
+    if (ProxyState.enemySpeed > -5) {
+      ProxyState.enemySpeed -= 2
+    }
   }
 }
 
