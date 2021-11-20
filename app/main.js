@@ -1,12 +1,19 @@
 import { ProxyState } from "./AppState.js";
 import { BlockController } from "./Controllers/BlockController.js";
+import { EnemyController } from "./Controllers/EnemyController.js";
 import { GameController } from "./Controllers/GameController.js";
 class App {
   blockController = new BlockController()
   gameController = new GameController()
+  enemController = new EnemyController()
 }
 
 window["app"] = new App();
+
+$(document).on("mousemove", function (event) {
+  ProxyState.player.x = event.pageX
+  ProxyState.player.y = event.pageY
+})
 $(document).mouseleave(() => {
   if (ProxyState.moved) {
     app.gameController.gameOver()

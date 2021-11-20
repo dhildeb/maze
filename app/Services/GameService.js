@@ -41,7 +41,6 @@ class GameService {
     let x = setInterval(function () {
       document.getElementById("timer").innerHTML = ProxyState.timer
       if (ProxyState.timer <= 0) {
-        console.log(app.gameController.gameOver())
         app.gameController.gameOver() ? clearInterval(x) : ProxyState.timer += 5
       }
       if (ProxyState.timer > 0) {

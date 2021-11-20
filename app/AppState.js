@@ -13,6 +13,8 @@ class AppState extends EventEmitter {
   timer = 71
   points = 0
   powerMode = false
+  enemy = { x: 50, y: 50 }
+  player = { x: 0, y: 0 }
 }
 
 export const ProxyState = new Proxy(new AppState(), {
