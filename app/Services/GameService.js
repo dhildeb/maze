@@ -7,13 +7,6 @@ class GameService {
 
   }
   gameOver() {
-    if (ProxyState.powerMode) {
-      ProxyState.points -= 5
-      if (ProxyState.points < 5) {
-        ProxyState.powerMode = false
-      }
-      return false
-    }
     ProxyState.game = false
     let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
     if ((ProxyState.level - 72) > highScore) {
@@ -55,14 +48,6 @@ class GameService {
     enemyService.determineEnemySpeed()
     // }
 
-  }
-  powerMode() {
-    console.log('power mode: ' + ProxyState.powerMode)
-    if (ProxyState.points > 4) {
-      ProxyState.powerMode = !ProxyState.powerMode
-    } else {
-      ProxyState.powerMode = false
-    }
   }
 }
 

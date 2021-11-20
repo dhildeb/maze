@@ -30,7 +30,7 @@ function _draw() {
     let color = getColor()
     template += `
     <div id="block${i + 1}" class="col-1 p-0 p--1">
-      <div class="block" style="background-color: ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('block${i + 1}')">
+      <div class="block" style="background-color: ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'playerController.handleHit'}('block${i + 1}')">
       </div>
     </div>
     `
@@ -48,7 +48,7 @@ function _change() {
     if (ProxyState.position != id && ProxyState.goal != id) {
       color = getColor()
       template = `
-        <div class="block" style="background-color: ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'gameController.gameOver'}('${id}'); this.onmouseover = null;">
+        <div class="block" style="background-color: ${color}" onmouseover="app.${color === 'green' ? 'blockController.changePosition' : 'playerController.handleHit'}('${id}'); this.onmouseover = null;">
         </div>
         `
       document.getElementById(id).innerHTML = template

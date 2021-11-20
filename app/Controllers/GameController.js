@@ -5,7 +5,6 @@ export class GameController {
     ProxyState.on('game', _endGame)
     ProxyState.on('weapon', _start)
     ProxyState.on('points', _updatePoints)
-    ProxyState.on('powerMode', _activatePowerMode)
   }
   gameOver() {
     return gameService.gameOver()
@@ -19,16 +18,14 @@ export class GameController {
   start(num) {
     gameService.start(num)
   }
-  powerMode() {
-    gameService.powerMode()
-  }
 }
 
 function _endGame() {
-  document.getElementById('board').innerHTML = `<h1 class='text-danger text-center'>Game Over<h1>
-  <p class='p-5'>Score: ${ProxyState.level - 72}</p>
+  document.getElementById('board').innerHTML = `<h1 class='text-danger text-center'>Game Over</h1>
+  <p class='p-5 score'>Score: ${ProxyState.level - 72}</p>
   <p class='restart text-center' onclick='app.gameController.restart()'>Restart</p>
   `
+  document.getElementById('stats').classList.add('d-none')
 }
 function _start() {
   let weapon = 'arrow'
@@ -63,11 +60,4 @@ function _start() {
 
 function _updatePoints() {
   document.getElementById('points').innerHTML = ProxyState.points
-}
-function _activatePowerMode() {
-  if (ProxyState.powerMode) {
-    document.body.classList.add('power-mode')
-  } else {
-    document.body.classList.remove('power-mode')
-  }
 }

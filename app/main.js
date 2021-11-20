@@ -2,10 +2,12 @@ import { ProxyState } from "./AppState.js";
 import { BlockController } from "./Controllers/BlockController.js";
 import { EnemyController } from "./Controllers/EnemyController.js";
 import { GameController } from "./Controllers/GameController.js";
+import { PlayerController } from "./Controllers/PlayerController.js";
 class App {
   blockController = new BlockController()
   gameController = new GameController()
   enemyController = new EnemyController()
+  playerController = new PlayerController()
 }
 
 window["app"] = new App();
@@ -35,6 +37,6 @@ switch (true) {
 // powermode!
 document.body.onkeyup = function (e) {
   if (e.keyCode == 32) {
-    app.gameController.powerMode()
+    app.playerController.powerMode()
   }
 }

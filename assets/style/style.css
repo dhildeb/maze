@@ -15,6 +15,10 @@ body{
 .restart{
   margin-top: 50vh;
   cursor: pointer;
+  font-size: xx-large;
+}
+.score{
+  font-size: xx-large;
 }
 .restart:hover{
   color: green;

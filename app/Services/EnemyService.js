@@ -1,22 +1,11 @@
 import { ProxyState } from "../AppState.js";
+import { playerService } from "./PlayerService.js";
 
 class EnemyService {
 
   moveTowardPlayer() {
     let playerPos = ProxyState.player
     let enemyPos = ProxyState.enemy
-
-    // if (Math.abs(playerPos.x - enemyPos.x) > 25) {
-    //   playerPos.x > enemyPos.x ? enemyPos.x += 25 : enemyPos.x -= 25
-    // } else {
-    //   enemyPos.x = playerPos.x
-    // }
-
-    // if (Math.abs(playerPos.y - enemyPos.y) > 25) {
-    //   playerPos.y > enemyPos.y ? enemyPos.y += 25 : enemyPos.y -= 25
-    // } else {
-    //   enemyPos.y = playerPos.y
-    // }
 
     playerPos.x > enemyPos.x ? enemyPos.x++ : enemyPos.x--
     playerPos.y > enemyPos.y ? enemyPos.y++ : enemyPos.y--
@@ -35,9 +24,15 @@ class EnemyService {
     }
   }
   increaseEnemySpeed() {
-    if (ProxyState.enemySpeed > -5) {
+    if (ProxyState.enemySpeed > 15) {
       ProxyState.enemySpeed -= 2
     }
+  }
+  battle() {
+    playerService.handleHit()
+    ProxyState.enemySpeed++
+    ProxyState.enemy.x = 50
+    ProxyState.enemy.y = 50
   }
 }
 
