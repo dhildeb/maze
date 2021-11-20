@@ -18,10 +18,6 @@ class EnemyService {
     } else {
       enemyPos.y = playerPos.y
     }
-
-    if (Math.abs(playerPos.x - enemyPos.x) < 25 && Math.abs(playerPos.y - enemyPos.y) < 25) {
-      gameService.gameOver()
-    }
   }
 }
 

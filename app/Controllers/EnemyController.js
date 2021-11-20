@@ -8,10 +8,10 @@ export class EnemyController {
 
 }
 function _drawEnemy() {
-  if (ProxyState.level > 75) {
-    enemyService.moveTowardPlayer()
-    document.getElementById('enemy').innerHTML = `
-    <div class='enemy' style='left: ${ProxyState.enemy.x}px; top: ${ProxyState.enemy.y}px;'></div>
+  // if (ProxyState.level > 75) {
+  enemyService.moveTowardPlayer()
+  document.getElementById('enemy').innerHTML = `
+    <div class='enemy' style='left: ${ProxyState.enemy.x}px; top: ${ProxyState.enemy.y}px;' onmouseover="app.gameController.gameOver()"></div>
     `
-  }
+  // }
 }
