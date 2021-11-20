@@ -18,9 +18,11 @@ export class EnemyController {
   }
 }
 function _drawEnemy() {
-  document.getElementById('enemy').innerHTML = `
+  if (ProxyState.level > 75) {
+    document.getElementById('enemy').innerHTML = `
     <div class='enemy' style='left: ${ProxyState.enemy.x}px; top: ${ProxyState.enemy.y}px;' onmouseover="app.enemyController.battle()"></div>
     `
+  }
 }
 
 function _drawEnemies() {
