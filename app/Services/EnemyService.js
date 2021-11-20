@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import { Enemy } from "../Models/Enemy.js";
 import { playerService } from "./PlayerService.js";
 
 class EnemyService {
@@ -21,6 +22,7 @@ class EnemyService {
       }
       ProxyState.enemySpeed = ProxyState.enemySpeed
       app.enemyController.moveTowardPlayer()
+      app.enemyController.moveSpawns()
     }
   }
   increaseEnemySpeed() {
@@ -33,6 +35,28 @@ class EnemyService {
     ProxyState.enemySpeed++
     ProxyState.enemy.x = 50
     ProxyState.enemy.y = 50
+  }
+  spawnEnemy() {
+    let enemy = new Enemy()
+    ProxyState.enemies.push(enemy)
+  }
+  moveSpawns() {
+    const maxX = $(window).width()
+    const maxY = $(window).height()
+    ProxyState.enemies.forEach(enemy => {
+      let pos = enemy.getPosition()
+      if (pos.x >= maxX || pos.y <= 0) {
+        enemy.setDirX(!enemy.dirX)
+      }
+      if (pos.y >= maxY || pos.y <= 0) {
+        enemy.setDirY(!enemy.dirY)
+      }
+      enemy.dirX ? pos.x-- : pos.x++
+      enemy.dirY ? pos.y-- : pos.y++
+
+      enemy.setPosition(pos.x, pos.y)
+    })
+    ProxyState.enemies = ProxyState.enemies
   }
 }
 

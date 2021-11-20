@@ -30,6 +30,7 @@ class GameService {
       ProxyState.timer += 5
     }
     enemyService.increaseEnemySpeed()
+    enemyService.spawnEnemy()
   }
   start(num) {
     ProxyState.weapon = num

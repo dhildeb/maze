@@ -1,6 +1,8 @@
 /* BASIC STYLES HERE */
 body{
   background-color: black;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .block{
   outline: .25px solid black;
