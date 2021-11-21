@@ -10,8 +10,8 @@ export class EnemyController {
   moveTowardPlayer() {
     enemyService.moveTowardPlayer()
   }
-  battle() {
-    enemyService.battle()
+  battle(id = 0) {
+    enemyService.battle(id)
   }
   moveSpawns() {
     enemyService.moveSpawns()

@@ -23,6 +23,6 @@ export class Enemy {
     this.positiony = y
   }
   get Template() {
-    return `<div class='enemy' style='left: ${this.positionX}px; top: ${this.positiony}px; background-color: ${this.color}' onmouseover="app.enemyController.battle()"></div>`
+    return `<div class='enemy' style='left: ${this.positionX}px; top: ${this.positiony}px; background-color: ${this.color}' onmouseover="app.enemyController.battle('${this.id}')"></div>`
   }
 }
