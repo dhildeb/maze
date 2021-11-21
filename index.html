@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css"
+    integrity="sha512-FEQLazq9ecqLN5T6wWq26hCZf7kPqUbFC9vsHNbXMJtSZZWAcbJspT+/NEAQkBfFReZ8r9QlA9JHaAuo28MTJA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>maze</title>
@@ -37,6 +39,8 @@
     </div>
     <div class="container-fluid">
       <div class="row justify-content-around" id="board">
+        <i class="click fas fa-cog fa-xl settings" title="Settings"
+          onclick="app.settingsController.displaySettings()"></i>
         <h1 class="m-xtra text-center">Choose your weapon</h1>
         <button class="col-1 btn btn-dark arrow" onclick="app.gameController.start(1)">arrow</button>
         <button class="col-1 btn btn-dark pointer" onclick="app.gameController.start(2)">finger</button>
@@ -52,6 +56,29 @@
 
     <div id="enemy"></div>
     <div id="enemies"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content bg-transparent">
+          <div class="modal-header">
+            <h5 class="modal-title text-light" id="settingsModalLabel">Settings</h5>
+            <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close"
+              onclick="$('#settingsModal').modal('toggle')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="settings">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
 

@@ -19,8 +19,8 @@ class AppState extends EventEmitter {
   enemySpeed = 54
   enemies = []
   blocks = []
-  safeBlockColor = 'green'//'transparent'
-  deadlyBlockColor = 'red'//getRandomColor()
+  safeBlockColor = JSON.parse(window.localStorage.getItem("safeBlockColor")) ?? '#008000'//'transparent'
+  deadlyBlockColor = JSON.parse(window.localStorage.getItem("deadlyBlockColor")) ?? '#ff0000'//getRandomColor()
 }
 
 export const ProxyState = new Proxy(new AppState(), {
