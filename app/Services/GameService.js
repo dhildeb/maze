@@ -1,13 +1,14 @@
 import { ProxyState } from "../AppState.js";
+import { blockService } from "./BlockService.js";
 import { enemyService } from "./EnemyService.js";
 
 
 class GameService {
-  gameOver() {
+  gameOver(death = undefined) {
+    console.log(death)
     ProxyState.game = false
     let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
     if ((ProxyState.level - 72) > highScore) {
-
       window.localStorage.setItem("highScore-maze", JSON.stringify((ProxyState.level - 72)))
     }
     ProxyState.timer = 0
@@ -28,13 +29,15 @@ class GameService {
     }
     enemyService.increaseEnemySpeed()
     enemyService.spawnEnemy()
+    blockService.handleBlockCount()
+    blockService.setGoal()
   }
   start(num) {
     ProxyState.weapon = num
     let x = setInterval(function () {
       document.getElementById("timer").innerHTML = ProxyState.timer
       if (ProxyState.timer <= 0) {
-        app.gameController.gameOver() ? clearInterval(x) : ProxyState.timer += 5
+        app.gameController.gameOver('time out') ? clearInterval(x) : ProxyState.timer += 5
       }
       if (ProxyState.timer > 0) {
         ProxyState.timer--
@@ -44,6 +47,8 @@ class GameService {
     ProxyState.points = _getPoints()
 
     enemyService.determineEnemySpeed()
+    blockService.handleBlockCount()
+    blockService.setGoal()
 
   }
 }

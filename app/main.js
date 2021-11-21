@@ -19,8 +19,8 @@ $(document).on("mousemove", function (event) {
 
 // no cheating
 $(document).mouseleave(() => {
-  if (ProxyState.moved) {
-    app.gameController.gameOver()
+  if (ProxyState.points) {
+    app.gameController.gameOver('cheating')
   }
 })
 let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))

@@ -5,8 +5,8 @@ export class PlayerController {
   constructor() {
     ProxyState.on('powerMode', _activatePowerMode)
   }
-  handleHit() {
-    playerService.handleHit()
+  handleHit(source) {
+    playerService.handleHit(source)
   }
   powerMode() {
     playerService.powerMode()

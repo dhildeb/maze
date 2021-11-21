@@ -1,4 +1,5 @@
 import { EventEmitter } from "./Utils/EventEmitter.js"
+import { getRandomColor } from "./Utils/generateColor.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
@@ -17,6 +18,9 @@ class AppState extends EventEmitter {
   player = { x: 0, y: 0 }
   enemySpeed = 54
   enemies = []
+  blocks = []
+  safeBlockColor = 'green'//'transparent'
+  deadlyBlockColor = 'red'//getRandomColor()
 }
 
 export const ProxyState = new Proxy(new AppState(), {

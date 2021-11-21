@@ -31,7 +31,7 @@ class EnemyService {
     }
   }
   battle(id = 0) {
-    playerService.handleHit(id)
+    playerService.handleHit(id, 'enemy')
     ProxyState.enemySpeed++
     ProxyState.enemy.x = 50
     ProxyState.enemy.y = 50

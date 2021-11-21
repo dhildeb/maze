@@ -6,8 +6,8 @@ export class GameController {
     ProxyState.on('weapon', _start)
     ProxyState.on('points', _updatePoints)
   }
-  gameOver() {
-    return gameService.gameOver()
+  gameOver(death) {
+    return gameService.gameOver(death)
   }
   restart() {
     gameService.restart()
