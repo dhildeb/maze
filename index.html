@@ -36,15 +36,18 @@
       </div>
     </div>
     <div class="container-fluid">
-      <div class="row" id="board">
-        <h1 class="m-xtra">Choose your weapon</h1>
-        <button class="btn btn-info arrow" onclick="app.gameController.start(1)">arrow</button>
-        <button class="btn btn-info pointer" onclick="app.gameController.start(2)">finger</button>
-        <button id="lightning" class="btn btn-info c1 d-none" onclick="app.gameController.start(3)">lightning</button>
-        <button id="tiny" class="btn btn-info c2 d-none" onclick="app.gameController.start(4)">tiny</button>
-        <button id="adventurer" class="btn btn-info c3 d-none" onclick="app.gameController.start(5)">adventurer</button>
-        <button id="sword" class="btn btn-info c4 d-none" onclick="app.gameController.start(6)">sword</button>
-        <button class="btn btn-info cn" onclick="app.gameController.start(7)">Hard Core</button>
+      <div class="row justify-content-around" id="board">
+        <h1 class="m-xtra text-center">Choose your weapon</h1>
+        <button class="col-1 btn btn-secondary arrow" onclick="app.gameController.start(1)">arrow</button>
+        <button class="col-1 btn btn-secondary pointer" onclick="app.gameController.start(2)">finger</button>
+        <button id="lightning" class="col-1 btn btn-secondary c1 d-none"
+          onclick="app.gameController.start(3)">lightning</button>
+        <button id="tiny" class="col-1 btn btn-secondary c2 d-none" onclick="app.gameController.start(4)">tiny</button>
+        <button id="adventurer" class="col-1 btn btn-secondary c3 d-none"
+          onclick="app.gameController.start(5)">adventurer</button>
+        <button id="sword" class="col-1 btn btn-secondary c4 d-none"
+          onclick="app.gameController.start(6)">sword</button>
+        <button class="col-1 btn btn-secondary cn hard-core" onclick="app.gameController.start(7)">Hard Core</button>
       </div>
     </div>
 

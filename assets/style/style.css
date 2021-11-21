@@ -1,8 +1,9 @@
 /* BASIC STYLES HERE */
 body{
   background-color: black;
-  overflow-x: hidden;
-  overflow-y: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 .block{
   outline: .25px solid black;
@@ -40,6 +41,12 @@ body{
 .cn{
   cursor: none;
 }
+.arrow{
+  cursor: default !important;
+}
+.hard-core{
+  cursor: help !important;
+}
 #timer{
   font-size: xx-large;
   color: whitesmoke;
@@ -51,7 +58,7 @@ body{
   background-color: rgba(245, 245, 245, 0.5) !important;
 }
 .bg-green{
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.5);
 }
 .text-gold{
   color: gold;

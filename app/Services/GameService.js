@@ -3,9 +3,6 @@ import { enemyService } from "./EnemyService.js";
 
 
 class GameService {
-  constructor() {
-
-  }
   gameOver() {
     ProxyState.game = false
     let highScore = JSON.parse(window.localStorage.getItem("highScore-maze"))
@@ -43,6 +40,7 @@ class GameService {
         ProxyState.timer--
       }
     }, 1000);
+
     ProxyState.points = _getPoints()
 
     enemyService.determineEnemySpeed()
