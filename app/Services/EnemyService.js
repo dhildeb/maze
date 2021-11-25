@@ -1,6 +1,6 @@
-import { ProxyState } from "../AppState.js";
-import { Enemy } from "../Models/Enemy.js";
-import { playerService } from "./PlayerService.js";
+import { ProxyState } from "../AppState.js"
+import { Enemy } from "../Models/Enemy.js"
+import { playerService } from "./PlayerService.js"
 
 class EnemyService {
 
