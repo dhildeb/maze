@@ -3,7 +3,7 @@ import { BlockController } from "./Controllers/BlockController.js";
 import { EnemyController } from "./Controllers/EnemyController.js";
 import { GameController } from "./Controllers/GameController.js";
 import { PlayerController } from "./Controllers/PlayerController.js";
-import { SettingsController } from "./Controllers/settingsController.js";
+import { SettingsController } from "./Controllers/SettingsController.js";
 class App {
   blockController = new BlockController()
   gameController = new GameController()
