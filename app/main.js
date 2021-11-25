@@ -21,7 +21,7 @@ $(document).on("mousemove", function (event) {
 
 // no cheating
 $(document).mouseleave(() => {
-  if (ProxyState.points) {
+  if (ProxyState.points && $(window).width() > 700) {
     app.gameController.gameOver('cheating')
   }
 })
